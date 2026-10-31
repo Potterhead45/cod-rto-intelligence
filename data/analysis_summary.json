@@ -1,0 +1,399 @@
+{
+  "baseline_verification": {
+    "total_records": {
+      "expected": 2018,
+      "observed": 2018,
+      "matches": true
+    },
+    "delivered": {
+      "expected": 1444,
+      "observed": 1444,
+      "matches": true
+    },
+    "rto": {
+      "expected": 573,
+      "observed": 573,
+      "matches": true
+    },
+    "in_transit": {
+      "expected": 1,
+      "observed": 1,
+      "matches": true
+    },
+    "completed_order_rto_rate": {
+      "expected": "28.41%",
+      "observed": "28.41%",
+      "matches": true
+    },
+    "date_range": {
+      "expected": "April 1 to September 30, 2026",
+      "observed": "2026-04-01 02:10 to 2026-09-30 23:04",
+      "matches": true
+    },
+    "two_prior_rtos": {
+      "expected": "26 RTOs out of 34",
+      "observed": "26 RTOs out of 34",
+      "matches": true
+    },
+    "suspicious_name_heuristic": {
+      "expected": "16 RTOs out of 21",
+      "observed": "16 RTOs out of 21",
+      "matches": true,
+      "heuristic_pattern": "Exact tokens: 'test order', 'test', 'asdf'"
+    },
+    "short_addresses_under_12": {
+      "expected": "100 RTOs out of 156",
+      "observed": "100 RTOs out of 156",
+      "matches": true
+    },
+    "gorakhpur": {
+      "expected": "29 RTOs out of 46",
+      "observed": "29 RTOs out of 46",
+      "matches": true
+    },
+    "mumbai": {
+      "expected": "39 RTOs out of 219",
+      "observed": "39 RTOs out of 219",
+      "matches": true
+    },
+    "xpressbees_rto_rate": {
+      "expected": "31.23%",
+      "observed": "31.23%",
+      "matches": true
+    },
+    "delhivery_rto_rate": {
+      "expected": "25.88%",
+      "observed": "25.88% (total) / 25.92% (completed)",
+      "observed_completed": "25.92%",
+      "observed_total": "25.88%",
+      "matches": true,
+      "note": "25.88% divides by total 707 records (including 1 IN_TRANSIT order); completed-only rate is 25.92%."
+    }
+  },
+  "data_quality": {
+    "duplicate_order_ids": 60,
+    "full_duplicate_rows": 30,
+    "null_cities": 4,
+    "null_pincodes": 12,
+    "non_standard_phones": 17,
+    "zero_order_values": 3
+  },
+  "order_value_distribution": {
+    "mean": 918.71,
+    "std": 577.18,
+    "min": 0.0,
+    "p25": 449.0,
+    "median": 748.0,
+    "p75": 1198.0,
+    "max": 2999.0
+  },
+  "courier_breakdown": {
+    "BlueDart": {
+      "total": 187,
+      "rtos": 54,
+      "rto_rate": 28.88
+    },
+    "Delhivery": {
+      "total": 706,
+      "rtos": 183,
+      "rto_rate": 25.92
+    },
+    "Ecom Express": {
+      "total": 305,
+      "rtos": 92,
+      "rto_rate": 30.16
+    },
+    "Shadowfax": {
+      "total": 422,
+      "rtos": 120,
+      "rto_rate": 28.44
+    },
+    "Xpressbees": {
+      "total": 397,
+      "rtos": 124,
+      "rto_rate": 31.23
+    }
+  },
+  "utm_breakdown": [
+    {
+      "utm_source": "meta_ads",
+      "total_orders": 779,
+      "rtos": 244,
+      "rto_rate": 31.32
+    },
+    {
+      "utm_source": "instagram_organic",
+      "total_orders": 235,
+      "rtos": 69,
+      "rto_rate": 29.36
+    },
+    {
+      "utm_source": "google_ads",
+      "total_orders": 246,
+      "rtos": 69,
+      "rto_rate": 28.05
+    },
+    {
+      "utm_source": "influencer",
+      "total_orders": 229,
+      "rtos": 61,
+      "rto_rate": 26.64
+    },
+    {
+      "utm_source": "whatsapp_broadcast",
+      "total_orders": 272,
+      "rtos": 72,
+      "rto_rate": 26.47
+    },
+    {
+      "utm_source": "direct",
+      "total_orders": 256,
+      "rtos": 58,
+      "rto_rate": 22.66
+    }
+  ],
+  "state_breakdown": [
+    {
+      "state": "Maharashtra",
+      "total_orders": 390,
+      "rtos": 70,
+      "raw_rto_rate": 17.95,
+      "smoothed_rto_rate": 18.34
+    },
+    {
+      "state": "Delhi",
+      "total_orders": 247,
+      "rtos": 53,
+      "raw_rto_rate": 21.46,
+      "smoothed_rto_rate": 21.86
+    },
+    {
+      "state": "Karnataka",
+      "total_orders": 214,
+      "rtos": 55,
+      "raw_rto_rate": 25.7,
+      "smoothed_rto_rate": 25.88
+    },
+    {
+      "state": "Uttar Pradesh",
+      "total_orders": 197,
+      "rtos": 88,
+      "raw_rto_rate": 44.67,
+      "smoothed_rto_rate": 43.52
+    },
+    {
+      "state": "Telangana",
+      "total_orders": 177,
+      "rtos": 44,
+      "raw_rto_rate": 24.86,
+      "smoothed_rto_rate": 25.14
+    },
+    {
+      "state": "Rajasthan",
+      "total_orders": 165,
+      "rtos": 48,
+      "raw_rto_rate": 29.09,
+      "smoothed_rto_rate": 29.03
+    },
+    {
+      "state": "Tamil Nadu",
+      "total_orders": 157,
+      "rtos": 33,
+      "raw_rto_rate": 21.02,
+      "smoothed_rto_rate": 21.66
+    },
+    {
+      "state": "Bihar",
+      "total_orders": 146,
+      "rtos": 78,
+      "raw_rto_rate": 53.42,
+      "smoothed_rto_rate": 51.09
+    },
+    {
+      "state": "West Bengal",
+      "total_orders": 131,
+      "rtos": 32,
+      "raw_rto_rate": 24.43,
+      "smoothed_rto_rate": 24.84
+    },
+    {
+      "state": "Madhya Pradesh",
+      "total_orders": 130,
+      "rtos": 50,
+      "raw_rto_rate": 38.46,
+      "smoothed_rto_rate": 37.42
+    },
+    {
+      "state": "Assam",
+      "total_orders": 63,
+      "rtos": 22,
+      "raw_rto_rate": 34.92,
+      "smoothed_rto_rate": 33.67
+    }
+  ],
+  "city_breakdown_top15": [
+    {
+      "city": "Delhi",
+      "total_orders": 246,
+      "rtos": 53,
+      "raw_rto_rate": 21.54,
+      "smoothed_rto_rate": 21.94
+    },
+    {
+      "city": "Mumbai",
+      "total_orders": 219,
+      "rtos": 39,
+      "raw_rto_rate": 17.81,
+      "smoothed_rto_rate": 18.49
+    },
+    {
+      "city": "Bengaluru",
+      "total_orders": 214,
+      "rtos": 55,
+      "raw_rto_rate": 25.7,
+      "smoothed_rto_rate": 25.88
+    },
+    {
+      "city": "Hyderabad",
+      "total_orders": 176,
+      "rtos": 44,
+      "raw_rto_rate": 25.0,
+      "smoothed_rto_rate": 25.27
+    },
+    {
+      "city": "Pune",
+      "total_orders": 171,
+      "rtos": 31,
+      "raw_rto_rate": 18.13,
+      "smoothed_rto_rate": 18.96
+    },
+    {
+      "city": "Chennai",
+      "total_orders": 157,
+      "rtos": 33,
+      "raw_rto_rate": 21.02,
+      "smoothed_rto_rate": 21.66
+    },
+    {
+      "city": "Kolkata",
+      "total_orders": 131,
+      "rtos": 32,
+      "raw_rto_rate": 24.43,
+      "smoothed_rto_rate": 24.84
+    },
+    {
+      "city": "Jaipur",
+      "total_orders": 123,
+      "rtos": 31,
+      "raw_rto_rate": 25.2,
+      "smoothed_rto_rate": 25.55
+    },
+    {
+      "city": "Lucknow",
+      "total_orders": 118,
+      "rtos": 39,
+      "raw_rto_rate": 33.05,
+      "smoothed_rto_rate": 32.53
+    },
+    {
+      "city": "Patna",
+      "total_orders": 80,
+      "rtos": 38,
+      "raw_rto_rate": 47.5,
+      "smoothed_rto_rate": 44.49
+    },
+    {
+      "city": "Indore",
+      "total_orders": 75,
+      "rtos": 22,
+      "raw_rto_rate": 29.33,
+      "smoothed_rto_rate": 29.18
+    },
+    {
+      "city": "Darbhanga",
+      "total_orders": 62,
+      "rtos": 36,
+      "raw_rto_rate": 58.06,
+      "smoothed_rto_rate": 52.29
+    },
+    {
+      "city": "Sagar",
+      "total_orders": 55,
+      "rtos": 28,
+      "raw_rto_rate": 50.91,
+      "smoothed_rto_rate": 46.09
+    },
+    {
+      "city": "Gorakhpur",
+      "total_orders": 46,
+      "rtos": 29,
+      "raw_rto_rate": 63.04,
+      "smoothed_rto_rate": 54.53
+    },
+    {
+      "city": "Guwahati",
+      "total_orders": 42,
+      "rtos": 15,
+      "raw_rto_rate": 35.71,
+      "smoothed_rto_rate": 33.79
+    }
+  ],
+  "prior_rto_breakdown": [
+    {
+      "prior_rto": 0,
+      "total_orders": 1872,
+      "rtos": 509,
+      "rto_rate": 27.19
+    },
+    {
+      "prior_rto": 1,
+      "total_orders": 111,
+      "rtos": 38,
+      "rto_rate": 34.23
+    },
+    {
+      "prior_rto": 2,
+      "total_orders": 34,
+      "rtos": 26,
+      "rto_rate": 76.47
+    }
+  ],
+  "prior_orders_breakdown": [
+    {
+      "prior_orders": 0,
+      "total_orders": 1517,
+      "rtos": 460,
+      "rto_rate": 30.32
+    },
+    {
+      "prior_orders": 1,
+      "total_orders": 104,
+      "rtos": 16,
+      "rto_rate": 15.38
+    },
+    {
+      "prior_orders": 2,
+      "total_orders": 102,
+      "rtos": 19,
+      "rto_rate": 18.63
+    },
+    {
+      "prior_orders": 3,
+      "total_orders": 99,
+      "rtos": 25,
+      "rto_rate": 25.25
+    },
+    {
+      "prior_orders": 4,
+      "total_orders": 94,
+      "rtos": 22,
+      "rto_rate": 23.4
+    },
+    {
+      "prior_orders": 5,
+      "total_orders": 101,
+      "rtos": 31,
+      "rto_rate": 30.69
+    }
+  ]
+}

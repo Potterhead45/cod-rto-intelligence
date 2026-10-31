@@ -1,0 +1,45 @@
+{
+  "name": "cod-rto-intelligence",
+  "version": "1.0.0",
+  "description": "AI-Powered COD Risk & Decision Platform",
+  "main": "server/server.ts",
+  "type": "module",
+  "scripts": {
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "seed": "tsx server/db/seed.ts",
+    "analyze": "python scripts/analyze_data.py",
+    "dev:backend": "tsx server/server.ts",
+    "dev:frontend": "npm --prefix client run dev",
+    "dev": "tsx server/server.ts",
+    "build:frontend": "npm --prefix client run build",
+    "build": "npm --prefix client run build",
+    "start": "tsx server/server.ts"
+  },
+  "keywords": [
+    "cod",
+    "rto",
+    "ecommerce",
+    "fraud-prevention",
+    "risk-engine"
+  ],
+  "author": "Antigravity Pair",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/better-sqlite3": "^9.6.0",
+    "@types/node": "^26.6.6",
+    "better-sqlite3": "^13.0.3",
+    "tsx": "^4.23.15",
+    "typescript": "^7.0.2",
+    "vitest": "^5.0.5"
+  },
+  "dependencies": {
+    "@fastify/cors": "^11.3.1",
+    "@fastify/static": "^10.1.8",
+    "csv-parse": "^7.0.3",
+    "dotenv": "^18.0.9",
+    "fastify": "^5.12.7",
+    "openai": "^7.47.0",
+    "zod": "^4.6.7"
+  }
+}

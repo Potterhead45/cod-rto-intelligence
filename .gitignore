@@ -1,0 +1,27 @@
+# Environment variables (NEVER COMMIT)
+.env
+.env.local
+.env.*.local
+
+# Dependencies
+node_modules/
+client/node_modules/
+
+# Production builds
+dist/
+client/dist/
+
+# Logs & temp files
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# SQLite local database
+data/*.sqlite
+data/*.sqlite-shm
+data/*.sqlite-wal
+
+# OS files
+.DS_Store
+Thumbs.db
