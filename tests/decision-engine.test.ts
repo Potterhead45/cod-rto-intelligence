@@ -1,10 +1,23 @@
-import { describe, it, expect, vi } from 'vitest';
+import { describe, it, expect, vi, beforeAll, afterAll } from 'vitest';
 import OpenAI from 'openai';
 import { evaluateOrderRisk, computeSmoothedRtoRate } from '../server/engine/risk-scoring.js';
 import { analyzeCustomerAndAddress } from '../server/engine/llm-analyzer.js';
 import { LLMAddressAnalysisSchema } from '../server/engine/types.js';
 
 describe('Decision Engine - Risk Scoring & Rules', () => {
+  const originalGroqKey = process.env.GROQ_API_KEY;
+
+  beforeAll(() => {
+    // Isolate unit tests from live external Groq API calls to ensure determinism and zero network latency.
+    // Dedicated Groq tests below explicitly supply their own test keys.
+    delete process.env.GROQ_API_KEY;
+  });
+
+  afterAll(() => {
+    if (originalGroqKey !== undefined) {
+      process.env.GROQ_API_KEY = originalGroqKey;
+    }
+  });
   it('classifies a safe repeat customer as SHIP_AS_IS with low risk score', async () => {
     const safeOrder = {
       order_id: 'SAFE_01',

@@ -6,7 +6,7 @@ import {
   ThresholdSettings,
   WeightSettings
 } from './types.js';
-import { analyzeCustomerAndAddress } from './llm-analyzer.js';
+import { analyzeCustomerAndAddress, mockAnalyzeCustomerAndAddress } from './llm-analyzer.js';
 
 // Pre-computed historical baseline rates from Milestone 1 analysis
 const GLOBAL_BASELINE_RTO_RATE = 0.2841; // 28.41%
@@ -218,16 +218,23 @@ export async function evaluateOrderRisk(
   let aiUsed = false;
   let aiReasoning = '';
 
-  const { result: aiAnalysis, aiUsed: usedAI } = await analyzeCustomerAndAddress(
-    order.customer_name,
-    order.address,
-    order.city,
-    order.state,
-    order.pincode
-  );
-
-  aiUsed = usedAI;
-  aiReasoning = aiAnalysis.summary_note;
+  let aiAnalysis: import('./types.js').LLMAddressAnalysis;
+  if (options?.skipLLM) {
+    aiAnalysis = mockAnalyzeCustomerAndAddress(order.customer_name, order.address);
+    aiUsed = false;
+    aiReasoning = aiAnalysis.summary_note;
+  } else {
+    const { result, aiUsed: usedAI } = await analyzeCustomerAndAddress(
+      order.customer_name,
+      order.address,
+      order.city,
+      order.state,
+      order.pincode
+    );
+    aiAnalysis = result;
+    aiUsed = usedAI;
+    aiReasoning = aiAnalysis.summary_note;
+  }
 
   // Name Quality Factor
   if (aiAnalysis.is_suspicious_name) {
@@ -351,8 +358,9 @@ export async function evaluateOrderRisk(
   // (2) Literal single character placeholder ('.', 73.2% empirical RTO), OR
   // (3) Blatant placeholder address combined with invalid phone or suspicious name
   const isExtremePlaceholder = order.address.trim() === '.' || order.address.trim().length <= 2;
+  const hasNoPositiveDelivery = priorOrders <= priorRto;
   if (
-    (priorRto >= 2 && priorOrders === 0) ||
+    (priorRto >= 2 && hasNoPositiveDelivery) ||
     isExtremePlaceholder ||
     (aiAnalysis.is_placeholder_address && (!isPhoneValid || aiAnalysis.is_suspicious_name))
   ) {
